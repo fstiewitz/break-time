@@ -1,0 +1,23 @@
+{
+  "name": "break-time",
+  "main": "./lib/break-time",
+  "version": "0.0.0",
+  "description": "Reminds/Forces you to take a break",
+  "keywords": [
+    "break"
+  ],
+  "repository": "https://github.com/deprint/break-time",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  }
+}

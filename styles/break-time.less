@@ -1,0 +1,28 @@
+@import "ui-variables";
+
+.break-time-view {
+  width: 100%;
+  height: 100%;
+  background-color: @overlay-border-color;
+
+  .break-time-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+
+    progress {
+      height: @component-line-height;
+    }
+
+    .text-highlight {
+      font-weight: bold;
+    }
+
+    .text-error {
+      font-weight: bold;
+    }
+  }
+}
