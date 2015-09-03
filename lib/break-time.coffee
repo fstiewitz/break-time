@@ -1,9 +1,12 @@
 BreakTimeView = require './break-time-view'
 StatusElement = require './status-element'
 
+{CompositeDisposable} = require 'atom'
+
 module.exports = BreakTime =
   breakTimeView: null
   modalPanel: null
+  subscriptions: null
 
   activate: ->
     @breakTimeView = new BreakTimeView
@@ -30,7 +33,23 @@ module.exports = BreakTime =
     @save_keypress = document.onkeypress
     document.onkeypress = => @start()
 
+    @subscriptions = new CompositeDisposable
+    @subscriptions.add atom.config.onDidChange 'break-time.intervalcount', ({newValue}) =>
+      return @break() if newValue < @currentInterval
+      @statusElement.reset()
+      @statusElement.update(@currentInterval)
+    @subscriptions.add atom.config.onDidChange 'break-time.microinterval', ({newValue}) =>
+      clearTimeout(@next)
+      @next = setTimeout( =>
+        document.onkeypress = => @start()
+        @break() if @currentInterval is atom.config.get('break-time.intervalcount')
+      , atom.config.get('break-time.microinterval') * 60 * 1000)
+      @statusElement.reset()
+      @statusElement.update(@currentInterval)
+
   deactivate: ->
+    @subscriptions.dispose()
+    @subscriptions = null
     @statusTile?.destroy()
     @statusElement = null
     @statusTile = null
