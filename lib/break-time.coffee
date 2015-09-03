@@ -43,13 +43,13 @@ module.exports = BreakTime =
 
   start: ->
     return @break() if @currentInterval++ is atom.config.get('break-time.intervalcount')
-    atom.notifications?.addInfo "You will take a break in #{atom.config.get('break-time.microinterval')} minutes" if @currentInterval + 1 is atom.config.get('break-time.intervalcount')
+    atom.notifications?.addWarning "You will take a break in #{atom.config.get('break-time.microinterval')} minutes" if @currentInterval >= atom.config.get('break-time.intervalcount')
     @statusElement.update(1)
     document.onkeypress = null
     clearTimeout(@next)
     @next = setTimeout( =>
       document.onkeypress = => @start()
-      @break() if @currentInterval + 1 is atom.config.get('break-time.intervalcount')
+      @break() if @currentInterval is atom.config.get('break-time.intervalcount')
     , atom.config.get('break-time.microinterval') * 60 * 1000)
 
   break: ->

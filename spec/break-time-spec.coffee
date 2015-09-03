@@ -30,7 +30,8 @@ describe 'Break Time', ->
     spy = null
 
     beforeEach ->
-      spy = spyOn(atom.notifications, 'addInfo')
+      spy = spyOn(atom.notifications, 'addWarning')
+      main.start()
       main.start()
       main.start()
 
@@ -38,7 +39,7 @@ describe 'Break Time', ->
       expect(spy).toHaveBeenCalled()
 
     it 'displays the new interval count in status bar', ->
-      expect(main.statusElement.num.innerText).toBe '2'
+      expect(main.statusElement.num.innerText).toBe '3'
 
   describe 'After last interval', ->
 
