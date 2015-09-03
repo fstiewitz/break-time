@@ -1,7 +1,7 @@
 {
   "name": "break-time",
   "main": "./lib/break-time",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Reminds/Forces you to take a break",
   "keywords": [
     "break"
@@ -11,8 +11,7 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "consumedServices": {
     "status-bar": {
       "versions": {
