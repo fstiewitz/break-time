@@ -12,6 +12,9 @@ break-time
 * Notifies you before the break so you can save your data.
 
 ## Settings
+
+The default is 52 minutes of work and 17 minutes of break time.
+
 * `intervalcount`: Number of intervals until break.
 * `microinterval`: Duration of one interval. Intervals where the user does not work are not counted.
 * `break`: Duration of break.
