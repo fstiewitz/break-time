@@ -1,6 +1,11 @@
-# break-time
+break-time
+============
 
-Reminds/Forces you to take a break.
+[![Build Status](https://travis-ci.org/deprint/break-time.svg)](https://travis-ci.org/deprint/break-time) [![apm](https://img.shields.io/apm/dm/break-time.svg)](https://github.com/deprint/break-time) [![apm](https://img.shields.io/apm/v/break-time.svg)](https://github.com/deprint/break-time)
+
+### Reminds/Forces you to take a break.
+
+![break](https://cloud.githubusercontent.com/assets/7817714/9659128/baebe8fc-524e-11e5-855f-e6291c484ebc.png)
 
 ## Features
 * Renders Atom unusable after some time to force you to take a break.
