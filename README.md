@@ -10,6 +10,8 @@ break-time
 ## Features
 * Renders Atom unusable after some time to force you to take a break.
 * Notifies you before the break so you can save your data.
+* Start a break manually with `break-time:break`
+* Skip the next break with `break-time:skip`
 
 ## Settings
 
