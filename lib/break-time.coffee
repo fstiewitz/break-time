@@ -62,7 +62,7 @@ module.exports = BreakTime =
 
   start: ->
     return @break() if @currentInterval++ is atom.config.get('break-time.intervalcount')
-    atom.notifications?.addWarning "You will take a break in #{atom.config.get('break-time.microinterval')} minutes" if @currentInterval >= atom.config.get('break-time.intervalcount')
+    atom.notifications?.addWarning "You will take a break in #{atom.config.get('break-time.microinterval')} minute(s)" if @currentInterval >= atom.config.get('break-time.intervalcount')
     @statusElement.update(1)
     document.onkeypress = null
     clearTimeout(@next)
