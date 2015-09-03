@@ -1,0 +1,18 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Break Time'
+      'submenu': [
+        {
+          'label': 'Start a break'
+          'command': 'break-time:break'
+        },
+        {
+          'label': 'Skip next break'
+          'command': 'break-time:skip'
+        }
+      ]
+    ]
+  }
+]

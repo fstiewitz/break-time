@@ -46,6 +46,8 @@ module.exports = BreakTime =
       , atom.config.get('break-time.microinterval') * 60 * 1000)
       @statusElement.reset()
       @statusElement.update(@currentInterval)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'break-time:break', => @break()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'break-time:skip', => @skip()
 
   deactivate: ->
     @subscriptions.dispose()
@@ -59,6 +61,12 @@ module.exports = BreakTime =
     document.onkeypress = @save_keypress
     atom.commands.dispatch = @save_command
     atom.keymaps.handleKeyboardEvent = @save_keymaps
+
+  skip: ->
+    @currentInterval = 0
+    @statusElement.reset()
+    @start()
+    atom.notifications?.addWarning "It's your health!"
 
   start: ->
     return @break() if @currentInterval++ is atom.config.get('break-time.intervalcount')
