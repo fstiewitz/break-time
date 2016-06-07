@@ -24,6 +24,7 @@ module.exports = BreakTime =
     element.parentNode.style.width = '100%'
     element.parentNode.style.height = '100%'
     element.parentNode.style.opacity = '0.85'
+    element.style.position = 'fixed'
 
     @currentInterval = 0
     @statusElement.reset()
