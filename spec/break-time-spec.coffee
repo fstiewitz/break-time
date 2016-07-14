@@ -55,10 +55,46 @@ describe 'Break Time', ->
     it 'shows "Break!" in status bar', ->
       expect(main.statusElement.num.innerText).toBe ''
 
-  describe 'During break', ->
+  describe 'During break (with close = false)', ->
 
     beforeEach ->
+      atom.config.set('break-time.close', false)
       main.break()
+
+    it 'hides the close button', ->
+      expect(main.breakTimeView.closer.style.display).toBe 'none'
+
+    describe 'after each minute', ->
+
+      beforeEach ->
+        main.breakTimeView.update(1)
+        main.breakTimeView.update(1)
+
+      it 'updates the progress bar', ->
+        expect(main.breakTimeView.v.value).toBe '2'
+
+    describe 'after last minute', ->
+
+      beforeEach ->
+        main.unbreak()
+
+      it 'hides the pane', ->
+        expect(main.modalPanel.isVisible()).toBe false
+
+      it 'resets the interval counter', ->
+        expect(main.currentInterval).toBe 0
+
+      it 'resets the status bar', ->
+        expect(main.statusElement.num.innerText).toBe '0'
+
+  describe 'During break (with close = true)', ->
+
+    beforeEach ->
+      atom.config.set('break-time.close', true)
+      main.break()
+
+    it 'hides the close button', ->
+      expect(main.breakTimeView.closer.style.display).toBe ''
 
     describe 'after each minute', ->
 

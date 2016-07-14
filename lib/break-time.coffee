@@ -9,7 +9,7 @@ module.exports = BreakTime =
   subscriptions: null
 
   activate: ->
-    @breakTimeView = new BreakTimeView
+    @breakTimeView = new BreakTimeView(@unbreak.bind(this))
     @statusElement = new StatusElement
     @modalPanel = atom.workspace.addModalPanel(item: @breakTimeView.getElement(), visible: false)
 
@@ -127,3 +127,8 @@ module.exports = BreakTime =
       description: 'Break time in minutes'
       default: 17
       type: 'integer'
+    close:
+      title: 'Show close icon during break'
+      description: 'It\'s your health, not mine. I\'m just a package.'
+      default: false
+      type: 'boolean'

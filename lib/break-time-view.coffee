@@ -1,8 +1,14 @@
 module.exports =
   class BreakTimeView
 
-    constructor: ->
+    constructor: (unbreak) ->
       @element = document.createElement 'div'
+      @closer = document.createElement 'div'
+      closericon = document.createElement 'span'
+      closericon.className = "icon icon-x"
+      @closer.className = "closer"
+      closericon.onclick = unbreak
+      @closer.appendChild closericon
       @message = document.createElement 'ul'
       @line = document.createElement 'div'
       @progressbar = document.createElement 'progress'
@@ -24,12 +30,14 @@ module.exports =
 
       @message.appendChild @line
       @message.appendChild @progressbar
+      @element.appendChild @closer
       @element.appendChild @message
 
     update: (v) ->
       @v.value = parseInt(@v.value) + v
 
     reset: ->
+      @closer.style.display = if atom.config.get('break-time.close') then '' else 'none'
       @v.value = 0
       @m.value = atom.config.get('break-time.break')
 
