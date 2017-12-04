@@ -51,6 +51,7 @@ module.exports = BreakTime =
     @subscriptions.add atom.commands.add 'atom-workspace', 'break-time:skip', => @skip()
 
   deactivate: ->
+    clearTimeout(@next)
     @subscriptions.dispose()
     @subscriptions = null
     @statusTile?.destroy()
