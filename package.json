@@ -1,7 +1,7 @@
 {
   "name": "break-time",
   "main": "./lib/break-time",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Reminds/Forces you to take a break",
   "keywords": [
     "break"
