@@ -1,7 +1,7 @@
 break-time
 ============
 
-[![Build Status](https://travis-ci.org/deprint/break-time.svg)](https://travis-ci.org/deprint/break-time) [![apm](https://img.shields.io/apm/dm/break-time.svg)](https://github.com/deprint/break-time) [![apm](https://img.shields.io/apm/v/break-time.svg)](https://github.com/deprint/break-time)
+[![Build Status](https://travis-ci.org/fstiewitz/break-time.svg)](https://travis-ci.org/fstiewitz/break-time) [![apm](https://img.shields.io/apm/dm/break-time.svg)](https://github.com/fstiewitz/break-time) [![apm](https://img.shields.io/apm/v/break-time.svg)](https://github.com/fstiewitz/break-time)
 
 ### Reminds/Forces you to take a break.
 

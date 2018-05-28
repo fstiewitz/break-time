@@ -6,7 +6,7 @@
   "keywords": [
     "break"
   ],
-  "repository": "https://github.com/deprint/break-time",
+  "repository": "https://github.com/fstiewitz/break-time",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
